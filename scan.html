@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Shoop</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel ="stylesheet" href="assets/style.css">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Shoop">
+    <meta name="application-name" content="Shoop">
+    <meta name="theme-color" content="#5e17eb">
+
+    <meta property="og:title" content="Shoop" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://efynmgit.idp2/shoop" />
+    <meta property="og:image" content="https://efynmgit.idp2/shoop/assets/images/icons/logowhite" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link href="assets/dialog-polyfill.css" rel="stylesheet">
+    <script src="assets/dialog-polyfill.js"></script>
+    <title> Shoop </title>
+    <style>
+        body    
+        {
+        font-family: 'Poppins', sans-serif;
+        }
+    </style>
+    <script src="assets/app.js"></script>
+</head>
+<body>
+    <div id="loading" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    <div id="about">
+        <h1>shoop</h1>
+    </div>
+    <video id="camera" autoplay>You need a camera in order to use this app.</video>
+    <div id="snapshotLimitOverlay">
+
+    </div>
+    <canvas id="qr-canvas"></canvas>
+    <button id="flipCamera" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">flip camera</button>
+
+    <dialog class="mdl-dialog">
+        <h4 class="mdl-dialog__title">Product name</h4>
+        <div class="mdl-dialog__content">
+            <p id="resultsContainer"><span id="result"></span></p>
+            <p>
+                <button type="button" class="copy mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised" data-clipboard-target="#result">Copy</button>
+                <a class="search mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised">Buy</a>
+            </p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="continue mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Continue</button>
+        </div>
+    </dialog>
+
+    <div class="mdl-dialog__actions">
+        <a id="startButton" type="button" href="index.html">home</a>
+    </div>
+</body>
+</html>
