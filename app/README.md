@@ -5,7 +5,7 @@ Shoop - QR code scanner for online shopping.
 ## Features
 
 - QRCode scanning
-- Offline and online scanning
+- Offline
 - Flip cameras if multiple are available
 - Shop button - URL leads right to website
 - No ads
