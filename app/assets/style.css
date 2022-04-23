@@ -94,3 +94,8 @@ body {
 #about h4 {
     margin-top: 0;
 }
+
+h4 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
