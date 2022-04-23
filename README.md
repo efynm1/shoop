@@ -1,6 +1,6 @@
 # Welcome to SHOOP
 
-Shoop - QR code scanner for online shopping.
+Shoop - QR code scanner for online and offline shopping.
 
 ## Features
 
