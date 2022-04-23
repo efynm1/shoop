@@ -1,28 +1,3 @@
-/*
-  Ported to JavaScript by Lazar Laszlo 2011 
-  
-  lazarsoft@gmail.com, www.lazarsoft.info
-  
-*/
-
-/*
-*
-* Copyright 2007 ZXing authors
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 function ReedSolomonDecoder(field)
 {
 	this.field = field;
@@ -35,7 +10,6 @@ function ReedSolomonDecoder(field)
 			var noError = true;
 			for (var i = 0; i < twoS; i++)
 			{
-				// Thanks to sanfordsquires for this fix:
 				var evalu = poly.evaluateAt(this.field.exp(dataMatrix?i + 1:i));
 				syndromeCoefficients[syndromeCoefficients.length - 1 - i] = evalu;
 				if (evalu != 0)
@@ -94,7 +68,6 @@ function ReedSolomonDecoder(field)
 				// Divide rLastLast by rLast, with quotient in q and remainder in r
 				if (rLast.Zero)
 				{
-					// Oops, Euclidean algorithm already terminated?
 					throw "r_{i-1} was zero";
 				}
 				r = rLastLast;
@@ -107,7 +80,6 @@ function ReedSolomonDecoder(field)
 					var scale = this.field.multiply(r.getCoefficient(r.Degree), dltInverse);
 					q = q.addOrSubtract(this.field.buildMonomial(degreeDiff, scale));
 					r = r.addOrSubtract(rLast.multiplyByMonomial(degreeDiff, scale));
-					//r.EXE();
 				}
 				
 				s = q.multiply1(sLast).addOrSubtract(sLastLast);
@@ -167,7 +139,6 @@ function ReedSolomonDecoder(field)
 					}
 				}
 				result[i] = this.field.multiply(errorEvaluator.evaluateAt(xiInverse), this.field.inverse(denominator));
-				// Thanks to sanfordsquires for this fix:
 				if (dataMatrix)
 				{
 					result[i] = this.field.multiply(result[i], xiInverse);

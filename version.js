@@ -1,29 +1,3 @@
-/*
-  Ported to JavaScript by Lazar Laszlo 2011 
-  
-  lazarsoft@gmail.com, www.lazarsoft.info
-  
-*/
-
-/*
-*
-* Copyright 2007 ZXing authors
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
-
 function ECB(count,  dataCodewords)
 {
 	this.count = count;
@@ -192,13 +166,10 @@ Version.decodeVersionInformation=function( versionBits)
 	for (var i = 0; i < Version.VERSION_DECODE_INFO.length; i++)
 	{
 		var targetVersion = Version.VERSION_DECODE_INFO[i];
-		// Do the version info bits match exactly? done.
 		if (targetVersion == versionBits)
 		{
 			return this.getVersionForNumber(i + 7);
 		}
-		// Otherwise see if this is the closest to a real version info bit string
-		// we have seen so far
 		var bitsDifference = FormatInformation.numBitsDiffering(versionBits, targetVersion);
 		if (bitsDifference < bestDifference)
 		{
@@ -206,13 +177,10 @@ Version.decodeVersionInformation=function( versionBits)
 			bestDifference = bitsDifference;
 		}
 	}
-	// We can tolerate up to 3 bits of error since no two version info codewords will
-	// differ in less than 4 bits.
 	if (bestDifference <= 3)
 	{
 		return this.getVersionForNumber(bestVersion);
 	}
-	// If we didn't find a close enough match, fail
 	return null;
 }
 

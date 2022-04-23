@@ -348,17 +348,10 @@ function Detector(image)
 				// Kind of arbitrary -- expand search radius before giving up
 				for (var i = 4; i <= 16; i <<= 1)
 				{
-					//try
-					//{
 						alignmentPattern = this.findAlignmentInRegion(moduleSize, estAlignmentX, estAlignmentY,  i);
 						break;
-					//}
-					//catch (re)
-					//{
-						// try next round
-					//}
+
 				}
-				// If we didn't find alignment pattern... well try anyway without it
 			}
 			
 			var transform = this.createTransform(topLeft, topRight, bottomLeft, alignmentPattern, dimension);

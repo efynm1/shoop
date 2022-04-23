@@ -1,28 +1,3 @@
-/*
-  Ported to JavaScript by Lazar Laszlo 2011 
-  
-  lazarsoft@gmail.com, www.lazarsoft.info
-  
-*/
-
-/*
-*
-* Copyright 2007 ZXing authors
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 var GridSampler = {};
 
 GridSampler.checkAndNudgePoints=function( image,  points)
@@ -118,26 +93,13 @@ GridSampler.sampleGrid3=function( image,  dimension,  transform)
 				{
 					for (var x = 0; x < max; x += 2)
 					{
-						//var xpoint = (Math.floor( points[x]) * 4) + (Math.floor( points[x + 1]) * qrcode.width * 4);
                         var bit = image[Math.floor( points[x])+ qrcode.width* Math.floor( points[x + 1])];
-						//qrcode.imagedata.data[xpoint] = bit?255:0;
-						//qrcode.imagedata.data[xpoint+1] = bit?255:0;
-						//qrcode.imagedata.data[xpoint+2] = 0;
-						//qrcode.imagedata.data[xpoint+3] = 255;
-						//bits[x >> 1][ y]=bit;
 						if(bit)
 							bits.set_Renamed(x >> 1, y);
 					}
 				}
 				catch ( aioobe)
 				{
-					// This feels wrong, but, sometimes if the finder patterns are misidentified, the resulting
-					// transform gets "twisted" such that it maps a straight line of points to a set of points
-					// whose endpoints are in bounds, but others are not. There is probably some mathematical
-					// way to detect this about the transformation that I don't know yet.
-					// This results in an ugly runtime exception despite our clever checks above -- can't have
-					// that. We could check each point's coordinates but that feels duplicative. We settle for
-					// catching and wrapping ArrayIndexOutOfBoundsException.
 					throw "Error.checkAndNudgePoints";
 				}
 			}

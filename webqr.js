@@ -157,7 +157,7 @@ function setwebcam()
 			  devices.forEach(function(device) {
 				if (device.kind === 'videoinput') {
 				  if(device.label.toLowerCase().search("back") >-1)
-					options={'deviceId': {'exact':device.deviceId}, 'facingMode':'environment'} ;
+					options={'deviceId': {'exact':device.deviceId}, 'facingMode':'user'} ;
 				}
 				console.log(device.kind + ": " + device.label +" id = " + device.deviceId);
 			  });
@@ -179,7 +179,7 @@ function setwebcam()
 function setwebcam2(options)
 {
 	console.log(options);
-	document.getElementById("result").innerHTML="- scanning -";
+	document.getElementById("result").innerHTML=" scanning ";
     if(stype==1)
     {
         setTimeout(captureToCanvas, 500);    
@@ -225,8 +225,6 @@ function setimg()
     if(stype==2)
         return;
     document.getElementById("outdiv").innerHTML = imghtml;
-    //document.getElementById("qrimg").src="qrimg.png";
-    //document.getElementById("webcamimg").src="webcam2.png";
     document.getElementById("qrimg").style.opacity=1.0;
     document.getElementById("webcamimg").style.opacity=0.2;
     var qrfile = document.getElementById("qrfile");

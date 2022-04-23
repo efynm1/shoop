@@ -1,20 +1,3 @@
-/*
-   Copyright 2011 Lazar Laszlo (lazarsoft@gmail.com, www.lazarsoft.info)
-   
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
-
-
 var qrcode = {};
 qrcode.imagedata = null;
 qrcode.width = 0;
@@ -163,7 +146,6 @@ qrcode.decode = function(src){
         var image = new Image();
         image.crossOrigin = "Anonymous";
         image.onload=function(){
-            //var canvas_qr = document.getElementById("qr-canvas");
             var canvas_out = document.getElementById("out-canvas");
             if(canvas_out!=null)
             {
@@ -374,8 +356,7 @@ qrcode.getMiddleBrightnessPerArea=function(image)
                         minmax[ax][ay][1] = target;
                 }
             }
-            //minmax[ax][ay][0] = (minmax[ax][ay][0] + minmax[ax][ay][1]) / 2;
-        }
+         }
     }
     var middle = new Array(numSqrtArea);
     for (var i3 = 0; i3 < numSqrtArea; i3++)
@@ -387,11 +368,9 @@ qrcode.getMiddleBrightnessPerArea=function(image)
         for (var ax = 0; ax < numSqrtArea; ax++)
         {
             middle[ax][ay] = Math.floor((minmax[ax][ay][0] + minmax[ax][ay][1]) / 2);
-            //Console.out.print(middle[ax][ay] + ",");
         }
-        //Console.out.println("");
     }
-    //Console.out.println("");
+
     
     return middle;
 }
@@ -406,7 +385,7 @@ qrcode.grayScaleToBitmap=function(grayScale)
     var buff = new ArrayBuffer(qrcode.width*qrcode.height);
     var bitmap = new Uint8Array(buff);
 
-    //var bitmap = new Array(qrcode.height*qrcode.width);
+
     
     for (var ay = 0; ay < sqrtNumArea; ay++)
     {

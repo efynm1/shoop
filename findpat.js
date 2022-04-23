@@ -1,28 +1,3 @@
-/*
-  Ported to JavaScript by Lazar Laszlo 2011 
-  
-  lazarsoft@gmail.com, www.lazarsoft.info
-  
-*/
-
-/*
-*
-* Copyright 2007 ZXing authors
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 var MIN_SKIP = 3;
 var MAX_MODULES = 57;
 var INTEGER_MATH_SHIFT = 8;
@@ -74,9 +49,6 @@ qrcode.orderBestPatterns=function(patterns)
 			}
 			
 			// Use cross product to figure out whether A and C are correct or flipped.
-			// This asks whether BC x BA has a positive z component, which is the arrangement
-			// we want for A, B, C. If it's negative, then we've got it flipped around and
-			// should swap A and C.
 			if (crossProductZ(pointA, pointB, pointC) < 0.0)
 			{
 				var temp = pointA;
@@ -468,11 +440,7 @@ function FinderPatternFinder()
 					}
 					else
 					{
-						// We have two confirmed centers
-						// How far down can we skip before resuming looking for the next
-						// pattern? In the worst case, only the difference between the
-						// difference in the x / y coordinates of the two centers.
-						// This is the case where you find top left last.
+						// Find top left last.
 						this.hasSkipped = true;
 						return Math.floor ((Math.abs(firstConfirmedCenter.X - center.X) - Math.abs(firstConfirmedCenter.Y - center.Y)) / 2);
 					}
