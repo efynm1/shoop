@@ -1,7 +1,7 @@
 {
   "lang": "en",
-  "short_name": "QR Code Scanner",
-  "name": "QR Code Scanner",
+  "short_name": "shoop",
+  "name": "shoop app for qr code scanning",
   "icons": [
     {
       "src": "\/assets\/images\/icons\/favicon.png",
