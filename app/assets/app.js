@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
         flipCameraButton.disabled = false;
         scanCode(true);
     });
-    new Clipboard('dialog button.copy');
+    new Clipboard('dialogbutton.copy');
 
     // init QRCode Web Worker
     const qrcodeWorker = new Worker("assets/qrcode_worker.js");
@@ -92,7 +92,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 resultContainer.innerText = resultData;
 
                 resultSearchGo.href = "https://www.google.com/search?q=" + encodeURIComponent(resultData);
-                resultSearchGo.innerText = "Search";
+                resultSearchGo.innerText = "Buy";
             }
 
             resultDialog.showModal();
